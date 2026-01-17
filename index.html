@@ -125,6 +125,15 @@
             color: #ffffff;
             padding-bottom: 10px;
             border-bottom: 2px solid #40444b;
+            
+        }
+        
+       .param {
+           background-color: #2f3136;
+           color: #b9bbbe;
+           padding: 2px 6px;
+           font-family: monospace;
+           border: 1px solid #40444b;
         }
         
         .command {
@@ -368,27 +377,37 @@
             <div class="commands-list">
                 <div class="command">
                     <div class="command-syntax">@Pokétwo start</div>
-                    <div class="command-desc">Start your Pokémon journey and receive your first Pokémon.</div>
+                    <div class="command-desc">View the starter pokémon.</div>
                 </div>
                 
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo pick <span class="param">&lt;pokemon&gt;</span></div>
+                    <div class="command-desc">Pick a starter pokémon to get started.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo help</div>
+                    <div class="command-desc">Show help about the bot, a command, or a category.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo ping</div>
+                    <div class="command-desc">View the bot's latency.</div>
+                </div>
+
                 <div class="command">
                     <div class="command-syntax">@Pokétwo tutorial</div>
                     <div class="command-desc">Learn the basics of how to play Pokétwo.</div>
                 </div>
-                
+
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo help</div>
-                    <div class="command-desc">View the help menu with all available commands.</div>
+                    <div class="command-syntax">@Pokétwo invite</div>
+                    <div class="command-desc">View the invite link for the bot.</div>
                 </div>
-                
+
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo prefix</div>
-                    <div class="command-desc">Check or change the command prefix for this server.</div>
-                </div>
-                
-                <div class="command">
-                    <div class="command-syntax">@Pokétwo ping</div>
-                    <div class="command-desc">Check if the bot is online and responsive.</div>
+                    <div class="command-syntax">@Pokétwo stats</div>
+                    <div class="command-desc">View bot info.</div>
                 </div>
             </div>
         </div>
@@ -398,28 +417,78 @@
             <div class="category-title">Catching and Collections</div>
             <div class="commands-list">
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo catch [pokémon-name]</div>
-                    <div class="command-desc">Catch a wild Pokémon when it appears.</div>
+                    <div class="command-syntax">@Pokétwo catch <span class="param">&lt;pokémon-name&gt;</span></div>
+                    <div class="command-desc">Catch a wild pokémon.</div>
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo pokémon</div>
-                    <div class="command-desc">View your Pokémon collection.</div>
+                    <div class="command-syntax">@Pokétwo pokemon</div>
+                    <div class="command-desc">View or filter the pokémon in your collection.</div>
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo select [number]</div>
-                    <div class="command-desc">Select a Pokémon from your collection.</div>
+                    <div class="command-syntax">@Pokétwo select <span class="param">&lt;number&gt;</span></div>
+                    <div class="command-desc">Select a specific pokémon from your collection.</div>
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo release [number]</div>
-                    <div class="command-desc">Release a Pokémon from your collection.</div>
+                    <div class="command-syntax">@Pokétwo release <span class="param">&lt;number&gt;</span></div>
+                    <div class="command-desc">Release pokémon from your collection for 2pc each.</div>
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo info [number]</div>
-                    <div class="command-desc">View detailed information about a Pokémon.</div>
+                    <div class="command-syntax">@Pokétwo info <span class="param">&lt;number&gt;</span></div>
+                    <div class="command-desc">View a specific pokémon from your collection.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo favorite <span class="param">&lt;number&gt;</span></div>
+                    <div class="command-desc">Mark a pokémon as a favorite.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo unfavorite <span class="param">&lt;number&gt;</span></div>
+                    <div class="command-desc">Unfavorite a selected pokemon.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo favoriteall</div>
+                    <div class="command-desc">Mass favorite selected pokemon.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo unfavoriteall</div>
+                    <div class="command-desc">Mass unfavorite selected pokemon.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo nickname <span class="param">&lt;name&gt;</span></div>
+                    <div class="command-desc">Change the nickname for your pokémon.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo nickall</div>
+                    <div class="command-desc">Mass nickname pokémon from your collection.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo releaseall</div>
+                    <div class="command-desc">Mass release pokémon from your collection for 2 pc each.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo reindex</div>
+                    <div class="command-desc">Re-number all pokémon in your collection.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo order</div>
+                    <div class="command-desc">Change how your pokémon are ordered.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo pokedex</div>
+                    <div class="command-desc">View your pokédex, or search for a pokémon species.</div>
                 </div>
             </div>
         </div>
@@ -429,28 +498,123 @@
             <div class="category-title">Market and Trading</div>
             <div class="commands-list">
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo trade @user</div>
-                    <div class="command-desc">Trade Pokémon with another user.</div>
+                    <div class="command-syntax">@Pokétwo trade <span class="param">&lt;@user&gt;</span></div>
+                    <div class="command-desc">Trade pokémon with another trainer.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo trade add <span class="param">&lt;number&gt;</span></div>
+                    <div class="command-desc">Add pokémon to a trade.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo trade addall</div>
+                    <div class="command-desc">Add multiple pokémon to a trade.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo trade add pokecoins <span class="param">&lt;amount&gt;</span></div>
+                    <div class="command-desc">Add Pokécoin(s) to a trade.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo trade add redeems <span class="param">&lt;amount&gt;</span></div>
+                    <div class="command-desc">Add redeem(s) to a trade.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo trade remove <span class="param">&lt;number&gt;</span></div>
+                    <div class="command-desc">Remove pokémon from a trade.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo trade remove pokecoins <span class="param">&lt;amount&gt;</span></div>
+                    <div class="command-desc">Remove Pokécoin(s) from a trade.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo trade remove redeems <span class="param">&lt;amount&gt;</span></div>
+                    <div class="command-desc">Remove redeem(s) from a trade.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo trade info</div>
+                    <div class="command-desc">View a pokémon from the trade.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo trade confirm</div>
+                    <div class="command-desc">Confirm a trade.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo trade cancel</div>
+                    <div class="command-desc">Cancel a trade.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo market</div>
+                    <div class="command-desc">Buy or sell pokémon on the Pokétwo marketplace.</div>
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo market search [pokémon]</div>
-                    <div class="command-desc">Search for Pokémon on the market.</div>
+                    <div class="command-syntax">@Pokétwo market search <span class="param">&lt;pokémon&gt;</span></div>
+                    <div class="command-desc">Search pokémon from the marketplace.</div>
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo market buy [id]</div>
-                    <div class="command-desc">Buy a Pokémon from the market.</div>
+                    <div class="command-syntax">@Pokétwo market buy <span class="param">&lt;id&gt;</span></div>
+                    <div class="command-desc">Buy a pokémon on the marketplace.</div>
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo market sell [number] [price]</div>
-                    <div class="command-desc">Sell a Pokémon on the market.</div>
+                    <div class="command-syntax">@Pokétwo market add <span class="param">&lt;number&gt;</span> <span class="param">&lt;price&gt;</span></div>
+                    <div class="command-desc">List a pokémon on the marketplace.</div>
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo auction start [number] [price]</div>
-                    <div class="command-desc">Start an auction for a Pokémon.</div>
+                    <div class="command-syntax">@Pokétwo market remove <span class="param">&lt;id&gt;</span></div>
+                    <div class="command-desc">Remove a pokémon from the marketplace.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo market info <span class="param">&lt;id&gt;</span></div>
+                    <div class="command-desc">View a pokémon from the market.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo auction</div>
+                    <div class="command-desc">Auction pokémon.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo auction start <span class="param">&lt;number&gt;</span> <span class="param">&lt;price&gt;</span></div>
+                    <div class="command-desc">Start an auction.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo auction bid <span class="param">&lt;id&gt;</span> <span class="param">&lt;amount&gt;</span></div>
+                    <div class="command-desc">Bid on an auction.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo auction info <span class="param">&lt;id&gt;</span></div>
+                    <div class="command-desc">View a pokémon from an auction.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo auction search <span class="param">&lt;pokémon&gt;</span></div>
+                    <div class="command-desc">Search pokémon from auctions.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo auction channel <span class="param">&lt;channel&gt;</span></div>
+                    <div class="command-desc">Change the auctions channel.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo auction lowerstart</div>
+                    <div class="command-desc">Lower the starting bid for your auction.</div>
                 </div>
             </div>
         </div>
@@ -460,28 +624,48 @@
             <div class="category-title">Battling</div>
             <div class="commands-list">
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo battle @user</div>
-                    <div class="command-desc">Challenge another user to a battle.</div>
+                    <div class="command-syntax">@Pokétwo battle <span class="param">&lt;@user&gt;</span></div>
+                    <div class="command-desc">Battle another trainer with your pokémon!</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo battle add <span class="param">&lt;number&gt;</span></div>
+                    <div class="command-desc">Add a pokémon to a battle.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo battle move <span class="param">&lt;move&gt;</span></div>
+                    <div class="command-desc">Move in a battle.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo battle cancel</div>
+                    <div class="command-desc">Cancel a battle.</div>
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo duel @user</div>
+                    <div class="command-syntax">@Pokétwo duel <span class="param">&lt;@user&gt;</span></div>
                     <div class="command-desc">Duel another user with selected Pokémon.</div>
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo moves [number]</div>
-                    <div class="command-desc">View the moves of your selected Pokémon.</div>
+                    <div class="command-syntax">@Pokétwo moveset</div>
+                    <div class="command-desc">View all moves for your pokémon and how to get them.</div>
                 </div>
-                
+
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo use [move]</div>
-                    <div class="command-desc">Use a move in battle.</div>
+                    <div class="command-syntax">@Pokétwo moves</div>
+                    <div class="command-desc">View current and available moves for your pokémon.</div>
                 </div>
-                
+
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo forfeit</div>
-                    <div class="command-desc">Forfeit the current battle.</div>
+                    <div class="command-syntax">@Pokétwo learn <span class="param">&lt;move-name&gt;</span></div>
+                    <div class="command-desc">Learn moves for your pokémon to use in battle.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo moveinfo <span class="param">&lt;move&gt;</span></div>
+                    <div class="command-desc">View information about a certain move.</div>
                 </div>
             </div>
         </div>
@@ -492,27 +676,57 @@
             <div class="commands-list">
                 <div class="command">
                     <div class="command-syntax">@Pokétwo shop</div>
-                    <div class="command-desc">View the item shop.</div>
+                    <div class="command-desc">View the Pokétwo item shop.</div>
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo buy [item]</div>
-                    <div class="command-desc">Buy an item from the shop.</div>
+                    <div class="command-syntax">@Pokétwo buy <span class="param">&lt;item&gt;</span> <span class="param">&lt;amount&gt;</span></div>
+                    <div class="command-desc">Purchase an item from the shop.</div>
                 </div>
-                
+
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo inventory</div>
-                    <div class="command-desc">View your inventory items.</div>
+                    <div class="command-syntax">@Pokétwo redeem <span class="param">&lt;pokémon&gt;</span></div>
+                    <div class="command-desc">Use a redeem to receive a pokémon of your choice.</div>
                 </div>
-                
+
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo useitem [item] [number]</div>
-                    <div class="command-desc">Use an item on a Pokémon.</div>
+                    <div class="command-syntax">@Pokétwo redeemspawn <span class="param">&lt;pokémon&gt;</span></div>
+                    <div class="command-desc">Use a redeem to spawn a pokémon of your choice.</div>
                 </div>
-                
+
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo redeem [pokémon]</div>
-                    <div class="command-desc">Use a redeem to receive a Pokémon of your choice.</div>
+                    <div class="command-syntax">@Pokétwo donate</div>
+                    <div class="command-desc">Donate to receive shards.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo balance</div>
+                    <div class="command-desc">View your current balance.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo vote</div>
+                    <div class="command-desc">View information on voting rewards.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo open</div>
+                    <div class="command-desc">Open mystery boxes received from voting.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo moveitem <span class="param">&lt;from&gt;</span> <span class="param">&lt;to&gt;</span></div>
+                    <div class="command-desc">Move a pokémon's held item.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo dropitem <span class="param">&lt;number&gt;</span></div>
+                    <div class="command-desc">Drop a pokémon's held item.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo togglebalance</div>
+                    <div class="command-desc">Toggle showing balance in shop.</div>
                 </div>
             </div>
         </div>
@@ -522,28 +736,33 @@
             <div class="category-title">Leveling and Evolution</div>
             <div class="commands-list">
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo level [number]</div>
-                    <div class="command-desc">Check the level of your selected Pokémon.</div>
+                    <div class="command-syntax">@Pokétwo info <span class="param">&lt;number&gt;</span></div>
+                    <div class="command-desc">Check the info of your selected Pokémon.</div>
                 </div>
                 
                 <div class="command">
                     <div class="command-syntax">@Pokétwo evolve</div>
-                    <div class="command-desc">Evolve your selected Pokémon if possible.</div>
+                    <div class="command-desc">Evolve a pokémon if it has reached the target level.</div>
                 </div>
-                
+
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo exp</div>
-                    <div class="command-desc">Check the experience points of your selected Pokémon.</div>
+                    <div class="command-syntax">@Pokétwo unmega</div>
+                    <div class="command-desc">Switch a pokémon back to its non-mega form.</div>
                 </div>
-                
+
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo train</div>
-                    <div class="command-desc">Train your Pokémon to gain experience.</div>
+                    <div class="command-syntax">@Pokétwo embedcolor <span class="param">&lt;color&gt;</span></div>
+                    <div class="command-desc">Change the embed colors for a pokémon.</div>
                 </div>
-                
+
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo mega</div>
-                    <div class="command-desc">Mega evolve your Pokémon if possible.</div>
+                    <div class="command-syntax">@Pokétwo silence</div>
+                    <div class="command-desc">Silence level up messages for yourself.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo serversilence</div>
+                    <div class="command-desc">Silence level up messages server-wide.</div>
                 </div>
             </div>
         </div>
@@ -553,15 +772,15 @@
             <div class="category-title">Some more stuffs</div>
             <div class="commands-list">
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo daily</div>
-                    <div class="command-desc">Claim your daily reward.</div>
-                </div>
-                
-                <div class="command">
                     <div class="command-syntax">@Pokétwo weekly</div>
                     <div class="command-desc">Claim your weekly reward.</div>
                 </div>
                 
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo daily</div>
+                    <div class="command-desc">Claim your daily reward.</div>
+                </div>
+
                 <div class="command">
                     <div class="command-syntax">@Pokétwo leaderboard</div>
                     <div class="command-desc">View the server leaderboard.</div>
@@ -575,6 +794,41 @@
                 <div class="command">
                     <div class="command-syntax">@Pokétwo achievements</div>
                     <div class="command-desc">View your achievements.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo quests</div>
+                    <div class="command-desc">View quests.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo location</div>
+                    <div class="command-desc">View or set the location for this server.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo time</div>
+                    <div class="command-desc">View the current time in the server.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo configuration</div>
+                    <div class="command-desc">View configuration options for this server.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo configuration help</div>
+                    <div class="command-desc">View configuration options for this server.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo togglemention</div>
+                    <div class="command-desc">Toggle getting mentioned when catching a pokémon.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo cleanup</div>
+                    <div class="command-desc">Cleans up the bot's messages from the channel.</div>
                 </div>
             </div>
         </div>
@@ -594,18 +848,38 @@
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo spawnchannel [channel]</div>
+                    <div class="command-syntax">@Pokétwo spawnchannel <span class="param">&lt;channel&gt;</span></div>
                     <div class="command-desc">Set the channel where Pokémon will spawn.</div>
                 </div>
                 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo shinyhunt [pokémon]</div>
-                    <div class="command-desc">Start shiny hunting for a specific Pokémon.</div>
+                    <div class="command-syntax">@Pokétwo shinyhunt <span class="param">&lt;pokémon&gt;</span></div>
+                    <div class="command-desc">Start shiny hunting for a specific Pokémon species.</div>
                 </div>
                 
                 <div class="command">
                     <div class="command-syntax">@Pokétwo chain</div>
                     <div class="command-desc">Check your current shiny hunting chain.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo hint</div>
+                    <div class="command-desc">Get a hint for the wild pokémon.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo redirect</div>
+                    <div class="command-desc">Redirect pokémon catches to one or more channels.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo redirect reset</div>
+                    <div class="command-desc">Reset channel redirect.</div>
+                </div>
+
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo stopincense</div>
+                    <div class="command-desc">Stop an incense.</div>
                 </div>
             </div>
         </div>
