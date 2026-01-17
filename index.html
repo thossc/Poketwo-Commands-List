@@ -17,20 +17,27 @@
             background-color: #2f3136;
             color: #ffffff;
             line-height: 1.4;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         
         .topbar {
             background-color: #202225;
-            padding: 15px 30px;
+            padding: 15px 20px;
             display: flex;
             align-items: center;
             border-bottom: 1px solid #000000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
         .topbar-icon {
             width: 30px;
             height: 30px;
             margin-right: 15px;
+            flex-shrink: 0;
         }
         
         .topbar-icon img {
@@ -40,30 +47,34 @@
         }
         
         .topbar-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
         }
         
         .container {
-            padding: 30px;
+            padding: 20px;
             max-width: 800px;
             margin: 0 auto;
+            width: 100%;
+            flex: 1;
         }
         
         .header {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .header-with-icon {
             display: flex;
             align-items: center;
             margin-bottom: 15px;
+            flex-wrap: wrap;
         }
         
         .bot-icon {
             width: 40px;
             height: 40px;
             margin-right: 15px;
+            flex-shrink: 0;
         }
         
         .bot-icon img {
@@ -73,7 +84,7 @@
         }
         
         .bot-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
         }
         
@@ -81,6 +92,7 @@
             color: #b9bbbe;
             margin-bottom: 20px;
             font-size: 16px;
+            line-height: 1.5;
         }
         
         .invite-button {
@@ -98,7 +110,8 @@
             border: none;
             height: 1px;
             background-color: #40444b;
-            margin: 30px 0;
+            margin: 25px 0;
+            width: 100%;
         }
         
         .commands-title {
@@ -107,27 +120,38 @@
             margin-bottom: 20px;
         }
         
+        .commands-list {
+            width: 100%;
+        }
+        
         .command {
             margin-bottom: 15px;
-            padding-left: 10px;
+            background-color: #36393f;
+            border-radius: 5px;
+            padding: 15px;
+            border: 1px solid #40444b;
         }
         
         .command-syntax {
             font-weight: bold;
             color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 8px;
+            word-break: break-word;
         }
         
         .command-desc {
             color: #b9bbbe;
-            margin-top: 5px;
-            margin-left: 20px;
+            font-size: 14px;
+            line-height: 1.4;
         }
         
         .footer {
             background-color: #202225;
-            padding: 30px;
-            margin-top: 40px;
+            padding: 25px 20px;
             border-top: 1px solid #000000;
+            margin-top: auto;
+            width: 100%;
         }
         
         .footer-content {
@@ -143,11 +167,13 @@
             font-weight: bold;
             margin-bottom: 10px;
             color: #ffffff;
+            font-size: 14px;
         }
         
         .footer-links {
             color: #b9bbbe;
             line-height: 1.8;
+            font-size: 13px;
         }
         
         .footer-links span {
@@ -167,6 +193,93 @@
             margin-top: 20px;
             padding-top: 20px;
             border-top: 1px solid #40444b;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .topbar {
+                padding: 12px 15px;
+            }
+            
+            .topbar-title {
+                font-size: 16px;
+            }
+            
+            .bot-title {
+                font-size: 20px;
+            }
+            
+            .description {
+                font-size: 15px;
+            }
+            
+            .command {
+                padding: 12px;
+            }
+            
+            .command-syntax {
+                font-size: 15px;
+            }
+            
+            .footer {
+                padding: 20px 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 12px;
+            }
+            
+            .topbar {
+                padding: 10px 12px;
+            }
+            
+            .topbar-icon {
+                width: 25px;
+                height: 25px;
+                margin-right: 10px;
+            }
+            
+            .bot-icon {
+                width: 35px;
+                height: 35px;
+                margin-right: 12px;
+            }
+            
+            .bot-title {
+                font-size: 18px;
+            }
+            
+            .description {
+                font-size: 14px;
+            }
+            
+            .invite-button {
+                padding: 8px 16px;
+                font-size: 13px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .commands-title {
+                font-size: 16px;
+            }
+            
+            .command {
+                padding: 10px;
+            }
+            
+            .footer-section-title {
+                font-size: 13px;
+            }
+            
+            .footer-links {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -200,29 +313,31 @@
         
         <div class="commands-title">Here are the Commands for Pokétwo Bot:</div>
         
-        <div class="command">
-            <div class="command-syntax">@Pokétwo unmega</div>
-            <div class="command-desc">Switch a pokémon back to its non-mega form.</div>
-        </div>
-        
-        <div class="command">
-            <div class="command-syntax">@Pokétwo location</div>
-            <div class="command-desc">View or set the location for this server.</div>
-        </div>
-        
-        <div class="command">
-            <div class="command-syntax">@Pokétwo redeem</div>
-            <div class="command-desc">Use a redeem to receive a pokémon of your choice.</div>
-        </div>
-        
-        <div class="command">
-            <div class="command-syntax">@Pokétwo favoritall</div>
-            <div class="command-desc">Mass favorite selected pokemon.</div>
-        </div>
-        
-        <div class="command">
-            <div class="command-syntax">@Pokétwo donate</div>
-            <div class="command-desc">Donate to receive shards.</div>
+        <div class="commands-list">
+            <div class="command">
+                <div class="command-syntax">@Pokétwo unmega</div>
+                <div class="command-desc">Switch a pokémon back to its non-mega form.</div>
+            </div>
+            
+            <div class="command">
+                <div class="command-syntax">@Pokétwo location</div>
+                <div class="command-desc">View or set the location for this server.</div>
+            </div>
+            
+            <div class="command">
+                <div class="command-syntax">@Pokétwo redeem</div>
+                <div class="command-desc">Use a redeem to receive a pokémon of your choice.</div>
+            </div>
+            
+            <div class="command">
+                <div class="command-syntax">@Pokétwo favoritall</div>
+                <div class="command-desc">Mass favorite selected pokemon.</div>
+            </div>
+            
+            <div class="command">
+                <div class="command-syntax">@Pokétwo donate</div>
+                <div class="command-desc">Donate to receive shards.</div>
+            </div>
         </div>
     </div>
     
