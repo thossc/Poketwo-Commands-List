@@ -19,90 +19,52 @@
             line-height: 1.4;
         }
         
-        .top-nav {
+        .main-header {
             background-color: #202225;
-            padding: 15px 20px;
+            padding: 20px;
         }
         
-        .nav-links {
+        .top-row {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 14px;
-        }
-        
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .category-nav {
-            background-color: #202225;
-            padding: 15px 20px;
-            border-top: 1px solid #000000;
-        }
-        
-        .category-links {
-            display: flex;
+            margin-bottom: 15px;
             flex-wrap: wrap;
             gap: 15px;
-            font-size: 14px;
         }
         
-        .category-links a {
-            color: #b9bbbe;
-            text-decoration: none;
-        }
-        
-        .category-links a:hover {
-            color: #ffffff;
-        }
-        
-        .header-section {
-            background-color: #202225;
-            padding: 25px 20px;
+        .logo-section {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid #000000;
+            gap: 15px;
         }
         
-        .header-left {
-            display: flex;
-            align-items: center;
-            flex: 1;
+        .logo-icon {
+            width: 40px;
+            height: 40px;
         }
         
-        .header-icon {
-            width: 50px;
-            height: 50px;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-        
-        .header-icon img {
+        .logo-icon img {
             width: 100%;
             height: 100%;
         }
         
-        .header-title {
-            font-size: 28px;
+        .logo-text {
+            font-size: 24px;
             font-weight: bold;
         }
         
         .header-buttons {
             display: flex;
             gap: 10px;
-            flex-shrink: 0;
+            flex-wrap: wrap;
         }
         
         .header-btn {
             background-color: #5865f2;
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 8px 16px;
             font-weight: bold;
             font-size: 14px;
             white-space: nowrap;
@@ -110,6 +72,24 @@
         
         .donate-btn {
             background-color: #3ba55c;
+        }
+        
+        .nav-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 14px;
+            padding-top: 15px;
+            border-top: 1px solid #000000;
+        }
+        
+        .nav-row a {
+            color: #b9bbbe;
+            text-decoration: none;
+        }
+        
+        .nav-row a:hover {
+            color: #ffffff;
         }
         
         .container {
@@ -244,15 +224,10 @@
                 padding: 20px 15px;
             }
             
-            .header-section {
-                padding: 20px 15px;
+            .top-row {
                 flex-direction: column;
-                gap: 15px;
                 align-items: flex-start;
-            }
-            
-            .header-left {
-                width: 100%;
+                gap: 15px;
             }
             
             .header-buttons {
@@ -266,14 +241,13 @@
                 font-size: 13px;
             }
             
-            .header-title {
-                font-size: 24px;
+            .logo-text {
+                font-size: 22px;
             }
             
-            .header-icon {
-                width: 40px;
-                height: 40px;
-                margin-right: 15px;
+            .logo-icon {
+                width: 35px;
+                height: 35px;
             }
             
             .main-header-title {
@@ -300,7 +274,7 @@
                 padding: 25px 15px;
             }
             
-            .nav-links, .category-links {
+            .nav-row {
                 gap: 10px;
                 font-size: 13px;
             }
@@ -311,18 +285,8 @@
                 padding: 15px 12px;
             }
             
-            .header-section {
-                padding: 15px 12px;
-            }
-            
-            .header-icon {
-                width: 35px;
-                height: 35px;
-                margin-right: 12px;
-            }
-            
-            .header-title {
-                font-size: 22px;
+            .logo-text {
+                font-size: 20px;
             }
             
             .main-header-title {
@@ -349,7 +313,7 @@
                 font-size: 13px;
             }
             
-            .nav-links, .category-links {
+            .nav-row {
                 gap: 8px;
                 font-size: 12px;
             }
@@ -357,37 +321,34 @@
     </style>
 </head>
 <body>
-    <div class="top-nav">
-        <div class="nav-links">
+    <!-- Single Header Section -->
+    <div class="main-header">
+        <div class="top-row">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <img src="https://dbl-discord.usercontent.prism.gg/avatars/716390085896962058/3031fa9e2fabde1652a57ab33f4d7f37.png?size=256" alt="Pokétwo Icon">
+                </div>
+                <div class="logo-text">Pokétwo Commands</div>
+            </div>
+            <div class="header-buttons">
+                <a href="https://poketwo.net/" class="header-btn" target="_blank">Official Site</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=716390085896962058&scope=bot&permissions=8" class="header-btn" target="_blank">Invite Bot</a>
+                <a href="https://poketwo.net/store" class="header-btn donate-btn" target="_blank">Donate</a>
+            </div>
+        </div>
+        
+        <div class="nav-row">
             <a href="#">Discover Bots</a>
             <a href="#">Discord Servers</a>
             <a href="#">Discord Emojis</a>
             <a href="#">Add Your Server</a>
             <a href="#">Music Bots</a>
-        </div>
-    </div>
-    
-    <div class="category-nav">
-        <div class="category-links">
+            <span style="color: #40444b">|</span>
             <a href="#">Catching and Collections</a>
             <a href="#">Market and Trading</a>
             <a href="#">Battling</a>
             <a href="#">Shop and Items</a>
             <a href="#">Starting</a>
-        </div>
-    </div>
-    
-    <div class="header-section">
-        <div class="header-left">
-            <div class="header-icon">
-                <img src="https://dbl-discord.usercontent.prism.gg/avatars/716390085896962058/3031fa9e2fabde1652a57ab33f4d7f37.png?size=256" alt="Pokétwo Icon">
-            </div>
-            <div class="header-title">Pokétwo Commands</div>
-        </div>
-        <div class="header-buttons">
-            <a href="https://poketwo.net/" class="header-btn" target="_blank">Official Site</a>
-            <a href="https://discord.com/oauth2/authorize?client_id=716390085896962058&scope=bot&permissions=8" class="header-btn" target="_blank">Invite Bot</a>
-            <a href="https://poketwo.net/store" class="header-btn donate-btn" target="_blank">Donate</a>
         </div>
     </div>
     
@@ -605,11 +566,6 @@
                     <span>BotsDB</span>
                     <span>Bloxscape</span>
                 </div>
-            </div>
-            
-            <div class="copyright">
-                Activate Windows<br>
-                Go to Settings to activate Windows.
             </div>
         </div>
     </div>
