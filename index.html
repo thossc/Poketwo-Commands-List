@@ -3,283 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokétwo Discord Bot Commands</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="https://dbl-discord.usercontent.prism.gg/avatars/716390085896962058/3031fa9e2fabde1652a57ab33f4d7f37.png?size=256" type="image/x-icon">
+    <title>Pokétwo Commands - Discord Bot List</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
         }
-
+        
         body {
             background-color: #2f3136;
-            color: #dcddde;
-            line-height: 1.6;
+            color: #ffffff;
+            line-height: 1.5;
             padding: 20px;
-            max-width: 1000px;
+        }
+        
+        .container {
+            max-width: 800px;
             margin: 0 auto;
+            background-color: #36393f;
+            border-radius: 8px;
+            padding: 30px;
         }
-
-        .header {
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 2px solid #5865F2;
-            margin-bottom: 40px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
+        
+        h1 {
+            color: #ffffff;
+            font-size: 32px;
             margin-bottom: 20px;
         }
-
-        .logo-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid #57F287;
-        }
-
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .logo-text h1 {
-            font-size: 36px;
-            color: white;
-        }
-
-        .logo-text h1 span {
-            color: #57F287;
-        }
-
-        .tagline {
-            font-size: 18px;
-            color: #b9bbbe;
-            margin-bottom: 15px;
-        }
-
-        .invite-btn {
-            display: inline-block;
-            background-color: #5865F2;
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 4px;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: background-color 0.3s;
-        }
-
-        .invite-btn:hover {
-            background-color: #4752C4;
-        }
-
-        .description {
-            background-color: #36393f;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 40px;
-            border-left: 5px solid #57F287;
-        }
-
-        .description h2 {
-            color: #57F287;
-            margin-bottom: 15px;
+        
+        h2 {
+            color: #ffffff;
             font-size: 24px;
-        }
-
-        .description p {
-            color: #b9bbbe;
-            font-size: 16px;
+            margin-top: 30px;
             margin-bottom: 15px;
         }
-
-        .commands-section {
-            margin-bottom: 50px;
-        }
-
-        .commands-section h2 {
-            font-size: 28px;
-            color: white;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #40444b;
-        }
-
-        .command {
-            background-color: #36393f;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 4px solid #5865F2;
-            transition: transform 0.2s;
-        }
-
-        .command:hover {
-            transform: translateY(-3px);
-            background-color: #40444b;
-        }
-
-        .command-syntax {
-            font-family: 'Courier New', monospace;
-            background-color: #2f3136;
-            padding: 12px 15px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            color: #57F287;
+        
+        .bot-name {
             font-weight: bold;
-            border: 1px solid #40444b;
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 15px;
         }
-
-        .command-description {
+        
+        .description {
             color: #b9bbbe;
-            padding-left: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
         }
-
-        .footer {
-            text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid #40444b;
-            color: #72767d;
-            font-size: 14px;
-            margin-top: 50px;
-        }
-
-        .footer a {
-            color: #5865F2;
+        
+        .invite-button {
+            display: inline-block;
+            background-color: #5865f2;
+            color: white;
             text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 30px;
         }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
+        
         hr {
             border: none;
             height: 1px;
             background-color: #40444b;
-            margin: 40px 0;
+            margin: 30px 0;
         }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-            
-            .logo-text h1 {
-                font-size: 28px;
-            }
-            
-            .description, .command {
-                padding: 15px;
-            }
+        
+        .command-list {
+            margin-top: 20px;
+        }
+        
+        .command {
+            margin-bottom: 20px;
+        }
+        
+        .command-syntax {
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        
+        .command-desc {
+            color: #b9bbbe;
+            margin-left: 20px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #40444b;
+            color: #72767d;
+            font-size: 14px;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #72767d;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+        
+        .footer-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background-color: #40444b;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #b9bbbe;
+        }
+        
+        .footer-partners {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+            color: #72767d;
+            font-size: 14px;
+        }
+        
+        .disclaimer {
+            font-size: 12px;
+            color: #72767d;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <div class="logo-icon">
-                <img src="https://dbl-discord.usercontent.prism.gg/avatars/716390085896962058/3031fa9e2fabde1652a57ab33f4d7f37.png?size=256" alt="Pokétwo Bot Icon">
-            </div>
-            <div class="logo-text">
-                <h1>Pokétwo <span>Commands</span></h1>
-            </div>
+    <div class="container">
+        <h1>Discord Bot List</h1>
+        
+        <div class="bot-name">Pokétwo Commands</div>
+        
+        <div class="description">
+            Discover the full list of Pokétwo commands with this guide. Easily navigate through the Pokétwo Bot commands list and find the perfect one for your needs.
         </div>
-        <div class="tagline">Discord Bot Commands List</div>
-        <a href="https://discord.com/oauth2/authorize?client_id=716390085896962058&scope=bot&permissions=8" class="invite-btn" target="_blank">
-            <i class="fab fa-discord"></i> Invite Pokétwo Bot
+        
+        <a href="https://discord.com/oauth2/authorize?client_id=716390085896962058&scope=bot&permissions=8" class="invite-button" target="_blank">
+            View Pokétwo Discord Bot
         </a>
-    </div>
-
-    <div class="description">
-        <h2>Pokétwo Commands</h2>
-        <p>Discover the full list of Pokétwo commands with this guide. Easily navigate through the Pokétwo Bot commands list and find the perfect one for your needs.</p>
-        <p>All commands start with <code>@Pokétwo</code> or <code>p!</code> prefix. You can also mention the bot directly.</p>
-    </div>
-
-    <hr>
-
-    <div class="commands-section">
+        
+        <hr>
+        
         <h2>Here are the Commands for Pokétwo Bot:</h2>
-
-        <div class="command">
-            <div class="command-syntax">@Pokétwo unmega [pokémon]</div>
-            <div class="command-description">Switch a pokémon back to its non-mega form.</div>
-        </div>
-
-        <div class="command">
-            <div class="command-syntax">@Pokétwo location [region/city]</div>
-            <div class="command-description">View or set the location for this server.</div>
-        </div>
-
-        <div class="command">
-            <div class="command-syntax">@Pokétwo redeem [pokémon]</div>
-            <div class="command-description">Use a redeem to receive a pokémon of your choice.</div>
-        </div>
-
-        <div class="command">
-            <div class="command-syntax">@Pokétwo catch [pokémon_name]</div>
-            <div class="command-description">Attempt to catch a wild Pokémon when it appears.</div>
-        </div>
-
-        <div class="command">
-            <div class="command-syntax">@Pokétwo pokémon</div>
-            <div class="command-description">View your Pokémon collection with levels, IVs, and stats.</div>
-        </div>
-
-        <div class="command">
-            <div class="command-syntax">@Pokétwo battle @user</div>
-            <div class="command-description">Challenge another trainer to a Pokémon battle.</div>
-        </div>
-
-        <div class="command">
-            <div class="command-syntax">@Pokétwo trade @user</div>
-            <div class="command-description">Trade Pokémon with another user in the server.</div>
-        </div>
-
-        <div class="command">
-            <div class="command-syntax">@Pokétwo info [pokémon]</div>
-            <div class="command-description">Get detailed information about a specific Pokémon.</div>
-        </div>
-
-        <div class="command">
-            <div class="command-syntax">@Pokétwo select [pokémon_number]</div>
-            <div class="command-description">Select a Pokémon from your collection to use.</div>
-        </div>
-
-        <div class="command">
-            <div class="command-syntax">@Pokétwo pokedex [pokémon]</div>
-            <div class="command-description">View Pokédex entry for a specific Pokémon.</div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>The literal and graphical information presented on this site about Discord, Discord Bots and Discord Servers and its trademarks are ©2026 Discord Inc.</p>
-        <p>This website is not produced by, endorsed by, supported by, or affiliated with Discord Inc.</p>
-        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Cookie Policy</a></p>
-    </div>
-
-    <script>
-        // Simple hover effect enhancement
-        document.querySelectorAll('.command').forEach(command => {
-            command.addEventListener('mouseenter', function() {
-                this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
-            });
+        
+        <div class="command-list">
+            <div class="command">
+                <div class="command-syntax">@Pokétwo unmeqa</div>
+                <div class="command-desc">Switch a pokémon back to its non-mega form.</div>
+            </div>
             
-            command.addEventListener('mouseleave', function() {
-                this.style.boxShadow = 'none';
-            });
-        });
-    </script>
+            <div class="command">
+                <div class="command-syntax">@Pokétwo location</div>
+                <div class="command-desc">View or set the location for this server.</div>
+            </div>
+            
+            <div class="command">
+                <div class="command-syntax">@Pokétwo redeem</div>
+                <div class="command-desc">Use a redeem to receive a pokémon of your choice.</div>
+            </div>
+            
+            <div class="command">
+                <div class="command-syntax">@Pokétwo catch</div>
+                <div class="command-desc">Catch a wild Pokémon when it appears.</div>
+            </div>
+            
+            <div class="command">
+                <div class="command-syntax">@Pokétwo pokémon</div>
+                <div class="command-desc">View your Pokémon collection.</div>
+            </div>
+            
+            <div class="command">
+                <div class="command-syntax">@Pokétwo battle</div>
+                <div class="command-desc">Battle another trainer's Pokémon.</div>
+            </div>
+            
+            <div class="command">
+                <div class="command-syntax">@Pokétwo trade</div>
+                <div class="command-desc">Trade Pokémon with another user.</div>
+            </div>
+            
+            <div class="command">
+                <div class="command-syntax">@Pokétwo select</div>
+                <div class="command-desc">Select a Pokémon from your collection.</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="disclaimer">
+                The literal and graphical information presented on this site about Discord, Discord Bots and Discord Servers and its trademarks are ©2026 Discord Inc. This website is not produced by, endorsed by, supported by, or affiliated with Discord Inc.
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">Links</a>
+                <a href="#">API</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Manage Cookies</a>
+                <a href="#">Official Discord Server</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Advertise</a>
+            </div>
+            
+            <div class="footer-tags">
+                <span class="tag">Discord Music Bots</span>
+                <span class="tag">Discord Crypto Bots</span>
+                <span class="tag">Discord Moderation Bots</span>
+                <span class="tag">Discord Levelling Bots</span>
+            </div>
+            
+            <div class="footer-partners">
+                <span>Partners</span>
+                <span>Minecraft Server List</span>
+                <span>WeCoach</span>
+                <span>BotsDB</span>
+                <span>Bloxscape</span>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
