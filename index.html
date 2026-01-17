@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokétwo Commands</title>
     <link rel="icon" href="https://dbl-discord.usercontent.prism.gg/avatars/716390085896962058/3031fa9e2fabde1652a57ab33f4d7f37.png?size=256" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -18,8 +19,6 @@
             color: #ffffff;
             line-height: 1.4;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
         
         .top-nav {
@@ -46,9 +45,35 @@
             color: #5865f2;
         }
         
+        .category-nav {
+            background-color: #202225;
+            padding: 15px 20px;
+            border-bottom: 1px solid #000000;
+        }
+        
+        .category-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 14px;
+        }
+        
+        .category-links a {
+            color: #b9bbbe;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .category-links a:hover {
+            background-color: #36393f;
+            color: #ffffff;
+        }
+        
         .topbar {
             background-color: #202225;
-            padding: 25px 20px;
+            padding: 30px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -62,9 +87,9 @@
         }
         
         .topbar-icon {
-            width: 40px;
-            height: 40px;
-            margin-right: 15px;
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
             flex-shrink: 0;
         }
         
@@ -75,13 +100,13 @@
         }
         
         .topbar-title {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
         }
         
         .topbar-buttons {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             flex-shrink: 0;
         }
         
@@ -89,10 +114,10 @@
             background-color: #5865f2;
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 4px;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 16px;
             white-space: nowrap;
         }
         
@@ -100,12 +125,28 @@
             background-color: #3ba55c;
         }
         
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        
+        .social-icon:hover {
+            opacity: 0.8;
+        }
+        
         .container {
             padding: 30px 20px;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             width: 100%;
-            flex: 1;
         }
         
         .header {
@@ -120,8 +161,8 @@
         }
         
         .bot-icon {
-            width: 50px;
-            height: 50px;
+            width: 70px;
+            height: 70px;
             margin-right: 20px;
             flex-shrink: 0;
         }
@@ -133,7 +174,7 @@
         }
         
         .bot-title {
-            font-size: 32px;
+            font-size: 36px;
             font-weight: bold;
         }
         
@@ -145,7 +186,6 @@
             background-color: #36393f;
             padding: 20px;
             border-radius: 8px;
-            border-left: 4px solid #5865f2;
         }
         
         .invite-button {
@@ -157,14 +197,33 @@
             border-radius: 4px;
             font-weight: bold;
             font-size: 16px;
+            border: none;
+            cursor: pointer;
         }
         
-        hr {
-            border: none;
-            height: 2px;
-            background-color: #40444b;
+        .did-you-know {
+            background-color: #36393f;
+            border-radius: 8px;
+            padding: 25px;
             margin: 30px 0;
-            width: 100%;
+            border-left: 4px solid #5865f2;
+        }
+        
+        .did-you-know-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        
+        .did-you-know-desc {
+            color: #b9bbbe;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .did-you-know-desc p {
+            margin-bottom: 10px;
         }
         
         .commands-title {
@@ -183,12 +242,6 @@
             background-color: #36393f;
             border-radius: 8px;
             padding: 20px;
-            border: 1px solid #40444b;
-            transition: all 0.2s;
-        }
-        
-        .command:hover {
-            border-color: #5865f2;
         }
         
         .command-syntax {
@@ -209,12 +262,12 @@
             background-color: #202225;
             padding: 30px 20px;
             border-top: 1px solid #000000;
-            margin-top: auto;
+            margin-top: 40px;
             width: 100%;
         }
         
         .footer-content {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         
@@ -256,15 +309,21 @@
             border-top: 1px solid #40444b;
         }
         
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 20px 15px;
             }
             
             .topbar {
-                padding: 20px 15px;
+                padding: 25px 15px;
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
                 align-items: flex-start;
             }
             
@@ -279,21 +338,41 @@
             }
             
             .topbar-btn {
-                padding: 8px 16px;
-                font-size: 13px;
+                padding: 10px 20px;
+                font-size: 15px;
             }
             
             .topbar-title {
-                font-size: 24px;
+                font-size: 28px;
+            }
+            
+            .topbar-icon {
+                width: 50px;
+                height: 50px;
+                margin-right: 15px;
             }
             
             .bot-title {
-                font-size: 26px;
+                font-size: 30px;
+            }
+            
+            .bot-icon {
+                width: 60px;
+                height: 60px;
+                margin-right: 15px;
             }
             
             .description {
                 font-size: 16px;
                 padding: 15px;
+            }
+            
+            .did-you-know {
+                padding: 20px;
+            }
+            
+            .did-you-know-title {
+                font-size: 24px;
             }
             
             .commands-title {
@@ -312,9 +391,13 @@
                 padding: 25px 15px;
             }
             
-            .nav-links {
-                gap: 15px;
+            .nav-links, .category-links {
+                gap: 10px;
                 font-size: 13px;
+            }
+            
+            .category-links a {
+                padding: 6px 12px;
             }
         }
         
@@ -324,23 +407,23 @@
             }
             
             .topbar {
-                padding: 15px 12px;
+                padding: 20px 12px;
             }
             
             .topbar-icon {
-                width: 35px;
-                height: 35px;
+                width: 45px;
+                height: 45px;
                 margin-right: 12px;
             }
             
             .bot-icon {
-                width: 40px;
-                height: 40px;
+                width: 50px;
+                height: 50px;
                 margin-right: 15px;
             }
             
             .bot-title {
-                font-size: 22px;
+                font-size: 26px;
             }
             
             .description {
@@ -353,6 +436,10 @@
                 font-size: 14px;
                 width: 100%;
                 text-align: center;
+            }
+            
+            .did-you-know-title {
+                font-size: 22px;
             }
             
             .commands-title {
@@ -371,8 +458,8 @@
                 font-size: 13px;
             }
             
-            .nav-links {
-                gap: 10px;
+            .nav-links, .category-links {
+                gap: 8px;
                 font-size: 12px;
             }
         }
@@ -389,12 +476,38 @@
         </div>
     </div>
     
+    <div class="category-nav">
+        <div class="category-links">
+            <a href="#">Catching and Collections</a>
+            <a href="#">Market and Trading</a>
+            <a href="#">Battling</a>
+            <a href="#">Shop and Items</a>
+            <a href="#">Starting</a>
+        </div>
+    </div>
+    
     <div class="topbar">
         <div class="topbar-left">
             <div class="topbar-icon">
                 <img src="https://dbl-discord.usercontent.prism.gg/avatars/716390085896962058/3031fa9e2fabde1652a57ab33f4d7f37.png?size=256" alt="Pokétwo Icon">
             </div>
-            <div class="topbar-title">Pokétwo Commands</div>
+            <div>
+                <div class="topbar-title">Pokétwo Commands</div>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-reddit"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="topbar-buttons">
             <a href="https://poketwo.net/" class="topbar-btn" target="_blank">Official Site</a>
@@ -421,7 +534,18 @@
             </a>
         </div>
         
-        <hr>
+        <div class="did-you-know">
+            <div class="did-you-know-title">Did you know?</div>
+            <div class="did-you-know-desc">
+                <p>Pokémon spawn every 20-25 messages (2 users min) in any channels</p>
+                <p>The spawn rate may change during events</p>
+                <p>Shiny chance: (~0.0244%), determined after catching, not during spawn, but this chance increases significantly for specific Pokémon through Shiny Hunting (chaining), though the odds improve less dramatically at higher chain counts.</p>
+                <p>Use `@Pokétwo catch &lt;pokémon-name&gt;` when one appears</p>
+                <p>Normal spawns: Regular Pokémon</p>
+                <p>Legendary spawns: Very rare (mostly low chance and obtainable)</p>
+                <p>Event spawns: During special events</p>
+            </div>
+        </div>
         
         <div class="commands-title">Here are the Commands for Pokétwo Bot:</div>
         
@@ -494,6 +618,20 @@
             </div>
             
             <div class="copyright">
+                <div class="footer-social">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-reddit"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
                 Activate Windows<br>
                 Go to Settings to activate Windows.
             </div>
