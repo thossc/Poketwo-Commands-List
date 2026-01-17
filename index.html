@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokétwo Commands</title>
     <link rel="icon" href="https://dbl-discord.usercontent.prism.gg/avatars/716390085896962058/3031fa9e2fabde1652a57ab33f4d7f37.png?size=256" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -18,13 +17,11 @@
             background-color: #2f3136;
             color: #ffffff;
             line-height: 1.4;
-            min-height: 100vh;
         }
         
         .top-nav {
             background-color: #202225;
             padding: 15px 20px;
-            border-bottom: 1px solid #000000;
         }
         
         .nav-links {
@@ -41,14 +38,10 @@
             font-weight: bold;
         }
         
-        .nav-links a:hover {
-            color: #5865f2;
-        }
-        
         .category-nav {
             background-color: #202225;
             padding: 15px 20px;
-            border-bottom: 1px solid #000000;
+            border-top: 1px solid #000000;
         }
         
         .category-links {
@@ -61,85 +54,62 @@
         .category-links a {
             color: #b9bbbe;
             text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            transition: background-color 0.2s;
         }
         
         .category-links a:hover {
-            background-color: #36393f;
             color: #ffffff;
         }
         
-        .topbar {
+        .header-section {
             background-color: #202225;
-            padding: 30px 20px;
+            padding: 25px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #000000;
+            border-top: 1px solid #000000;
         }
         
-        .topbar-left {
+        .header-left {
             display: flex;
             align-items: center;
             flex: 1;
         }
         
-        .topbar-icon {
-            width: 60px;
-            height: 60px;
+        .header-icon {
+            width: 50px;
+            height: 50px;
             margin-right: 20px;
             flex-shrink: 0;
         }
         
-        .topbar-icon img {
+        .header-icon img {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
         }
         
-        .topbar-title {
-            font-size: 32px;
+        .header-title {
+            font-size: 28px;
             font-weight: bold;
         }
         
-        .topbar-buttons {
+        .header-buttons {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             flex-shrink: 0;
         }
         
-        .topbar-btn {
+        .header-btn {
             background-color: #5865f2;
             color: white;
             text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 4px;
+            padding: 10px 20px;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 14px;
             white-space: nowrap;
         }
         
         .donate-btn {
             background-color: #3ba55c;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-        }
-        
-        .social-icon {
-            color: white;
-            font-size: 20px;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-        
-        .social-icon:hover {
-            opacity: 0.8;
         }
         
         .container {
@@ -149,68 +119,60 @@
             width: 100%;
         }
         
-        .header {
+        .main-header-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        .main-header-desc {
+            color: #b9bbbe;
+            font-size: 16px;
+            line-height: 1.6;
             margin-bottom: 30px;
         }
         
-        .header-with-icon {
-            display: flex;
-            align-items: center;
+        .category-section {
+            margin-bottom: 40px;
+        }
+        
+        .category-title {
+            font-size: 24px;
+            font-weight: bold;
             margin-bottom: 20px;
-            flex-wrap: wrap;
+            color: #ffffff;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #40444b;
         }
         
-        .bot-icon {
-            width: 70px;
-            height: 70px;
-            margin-right: 20px;
-            flex-shrink: 0;
+        .command {
+            margin-bottom: 20px;
         }
         
-        .bot-icon img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-        }
-        
-        .bot-title {
-            font-size: 36px;
+        .command-syntax {
             font-weight: bold;
-        }
-        
-        .description {
-            color: #b9bbbe;
-            margin-bottom: 25px;
-            font-size: 18px;
-            line-height: 1.6;
-            background-color: #36393f;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        
-        .invite-button {
-            display: inline-block;
-            background-color: #5865f2;
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 4px;
-            font-weight: bold;
+            color: #ffffff;
             font-size: 16px;
-            border: none;
-            cursor: pointer;
+            margin-bottom: 5px;
+            word-break: break-word;
+        }
+        
+        .command-desc {
+            color: #b9bbbe;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-left: 20px;
         }
         
         .did-you-know {
             background-color: #36393f;
-            border-radius: 8px;
             padding: 25px;
-            margin: 30px 0;
-            border-left: 4px solid #5865f2;
+            margin: 40px 0;
         }
         
         .did-you-know-title {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
             color: #ffffff;
             margin-bottom: 15px;
@@ -218,44 +180,12 @@
         
         .did-you-know-desc {
             color: #b9bbbe;
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.6;
         }
         
         .did-you-know-desc p {
             margin-bottom: 10px;
-        }
-        
-        .commands-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 25px;
-            color: #ffffff;
-        }
-        
-        .commands-list {
-            width: 100%;
-        }
-        
-        .command {
-            margin-bottom: 20px;
-            background-color: #36393f;
-            border-radius: 8px;
-            padding: 20px;
-        }
-        
-        .command-syntax {
-            font-weight: bold;
-            color: #ffffff;
-            font-size: 18px;
-            margin-bottom: 10px;
-            word-break: break-word;
-        }
-        
-        .command-desc {
-            color: #b9bbbe;
-            font-size: 16px;
-            line-height: 1.5;
         }
         
         .footer {
@@ -309,62 +239,53 @@
             border-top: 1px solid #40444b;
         }
         
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-        }
-        
         @media (max-width: 768px) {
             .container {
                 padding: 20px 15px;
             }
             
-            .topbar {
-                padding: 25px 15px;
+            .header-section {
+                padding: 20px 15px;
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
                 align-items: flex-start;
             }
             
-            .topbar-left {
+            .header-left {
                 width: 100%;
             }
             
-            .topbar-buttons {
+            .header-buttons {
                 width: 100%;
                 justify-content: flex-start;
                 flex-wrap: wrap;
             }
             
-            .topbar-btn {
-                padding: 10px 20px;
-                font-size: 15px;
+            .header-btn {
+                padding: 8px 16px;
+                font-size: 13px;
             }
             
-            .topbar-title {
-                font-size: 28px;
+            .header-title {
+                font-size: 24px;
             }
             
-            .topbar-icon {
-                width: 50px;
-                height: 50px;
+            .header-icon {
+                width: 40px;
+                height: 40px;
                 margin-right: 15px;
             }
             
-            .bot-title {
-                font-size: 30px;
+            .main-header-title {
+                font-size: 26px;
             }
             
-            .bot-icon {
-                width: 60px;
-                height: 60px;
-                margin-right: 15px;
+            .main-header-desc {
+                font-size: 14px;
             }
             
-            .description {
-                font-size: 16px;
-                padding: 15px;
+            .category-title {
+                font-size: 20px;
             }
             
             .did-you-know {
@@ -372,19 +293,7 @@
             }
             
             .did-you-know-title {
-                font-size: 24px;
-            }
-            
-            .commands-title {
                 font-size: 20px;
-            }
-            
-            .command {
-                padding: 15px;
-            }
-            
-            .command-syntax {
-                font-size: 16px;
             }
             
             .footer {
@@ -395,10 +304,6 @@
                 gap: 10px;
                 font-size: 13px;
             }
-            
-            .category-links a {
-                padding: 6px 12px;
-            }
         }
         
         @media (max-width: 480px) {
@@ -406,48 +311,34 @@
                 padding: 15px 12px;
             }
             
-            .topbar {
-                padding: 20px 12px;
+            .header-section {
+                padding: 15px 12px;
             }
             
-            .topbar-icon {
-                width: 45px;
-                height: 45px;
+            .header-icon {
+                width: 35px;
+                height: 35px;
                 margin-right: 12px;
             }
             
-            .bot-icon {
-                width: 50px;
-                height: 50px;
-                margin-right: 15px;
-            }
-            
-            .bot-title {
-                font-size: 26px;
-            }
-            
-            .description {
-                font-size: 15px;
-                padding: 12px;
-            }
-            
-            .invite-button {
-                padding: 10px 20px;
-                font-size: 14px;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .did-you-know-title {
+            .header-title {
                 font-size: 22px;
             }
             
-            .commands-title {
+            .main-header-title {
+                font-size: 22px;
+            }
+            
+            .main-header-desc {
+                font-size: 14px;
+            }
+            
+            .did-you-know-title {
                 font-size: 18px;
             }
             
-            .command {
-                padding: 12px;
+            .did-you-know-desc {
+                font-size: 14px;
             }
             
             .footer-section-title {
@@ -486,54 +377,182 @@
         </div>
     </div>
     
-    <div class="topbar">
-        <div class="topbar-left">
-            <div class="topbar-icon">
+    <div class="header-section">
+        <div class="header-left">
+            <div class="header-icon">
                 <img src="https://dbl-discord.usercontent.prism.gg/avatars/716390085896962058/3031fa9e2fabde1652a57ab33f4d7f37.png?size=256" alt="Pokétwo Icon">
             </div>
-            <div>
-                <div class="topbar-title">Pokétwo Commands</div>
-                <div class="social-icons">
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-discord"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-reddit"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
+            <div class="header-title">Pokétwo Commands</div>
         </div>
-        <div class="topbar-buttons">
-            <a href="https://poketwo.net/" class="topbar-btn" target="_blank">Official Site</a>
-            <a href="https://discord.com/oauth2/authorize?client_id=716390085896962058&scope=bot&permissions=8" class="topbar-btn" target="_blank">Invite Bot</a>
-            <a href="https://poketwo.net/store" class="topbar-btn donate-btn" target="_blank">Donate</a>
+        <div class="header-buttons">
+            <a href="https://poketwo.net/" class="header-btn" target="_blank">Official Site</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=716390085896962058&scope=bot&permissions=8" class="header-btn" target="_blank">Invite Bot</a>
+            <a href="https://poketwo.net/store" class="header-btn donate-btn" target="_blank">Donate</a>
         </div>
     </div>
     
     <div class="container">
-        <div class="header">
-            <div class="header-with-icon">
-                <div class="bot-icon">
-                    <img src="https://dbl-discord.usercontent.prism.gg/avatars/716390085896962058/3031fa9e2fabde1652a57ab33f4d7f37.png?size=256" alt="Pokétwo Icon">
-                </div>
-                <div class="bot-title">Pokétwo Commands</div>
-            </div>
-            
-            <div class="description">
-                Discover the full list of Pokétwo commands with this guide. Easily navigate through the Pokétwo Bot commands list and find the perfect one for your needs.
-            </div>
-            
-            <a href="https://discord.com/oauth2/authorize?client_id=716390085896962058&scope=bot&permissions=8" class="invite-button" target="_blank">
-                View Pokétwo Discord Bot
-            </a>
+        <div class="main-header-title">Pokétwo Commands</div>
+        <div class="main-header-desc">
+            Discover the full list of Pokétwo commands with this guide. Easily navigate through the Pokétwo Bot commands list and find the perfect one for your needs.
         </div>
         
+        <!-- Starting Commands -->
+        <div class="category-section">
+            <div class="category-title">Starting</div>
+            <div class="commands-list">
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo start</div>
+                    <div class="command-desc">Start your Pokémon journey and receive your first Pokémon.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo tutorial</div>
+                    <div class="command-desc">Learn the basics of how to play Pokétwo.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo help</div>
+                    <div class="command-desc">View the help menu with all available commands.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo prefix</div>
+                    <div class="command-desc">Check or change the command prefix for this server.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo ping</div>
+                    <div class="command-desc">Check if the bot is online and responsive.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Catching and Collections -->
+        <div class="category-section">
+            <div class="category-title">Catching and Collections</div>
+            <div class="commands-list">
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo catch [pokémon-name]</div>
+                    <div class="command-desc">Catch a wild Pokémon when it appears.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo pokémon</div>
+                    <div class="command-desc">View your Pokémon collection.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo select [number]</div>
+                    <div class="command-desc">Select a Pokémon from your collection.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo release [number]</div>
+                    <div class="command-desc">Release a Pokémon from your collection.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo info [number]</div>
+                    <div class="command-desc">View detailed information about a Pokémon.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Market and Trading -->
+        <div class="category-section">
+            <div class="category-title">Market and Trading</div>
+            <div class="commands-list">
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo trade @user</div>
+                    <div class="command-desc">Trade Pokémon with another user.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo market search [pokémon]</div>
+                    <div class="command-desc">Search for Pokémon on the market.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo market buy [id]</div>
+                    <div class="command-desc">Buy a Pokémon from the market.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo market sell [number] [price]</div>
+                    <div class="command-desc">Sell a Pokémon on the market.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo auction start [number] [price]</div>
+                    <div class="command-desc">Start an auction for a Pokémon.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Battling -->
+        <div class="category-section">
+            <div class="category-title">Battling</div>
+            <div class="commands-list">
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo battle @user</div>
+                    <div class="command-desc">Challenge another user to a battle.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo duel @user</div>
+                    <div class="command-desc">Duel another user with selected Pokémon.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo moves [number]</div>
+                    <div class="command-desc">View the moves of your selected Pokémon.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo use [move]</div>
+                    <div class="command-desc">Use a move in battle.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo forfeit</div>
+                    <div class="command-desc">Forfeit the current battle.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Shop and Items -->
+        <div class="category-section">
+            <div class="category-title">Shop and Items</div>
+            <div class="commands-list">
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo shop</div>
+                    <div class="command-desc">View the item shop.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo buy [item]</div>
+                    <div class="command-desc">Buy an item from the shop.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo inventory</div>
+                    <div class="command-desc">View your inventory items.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo useitem [item] [number]</div>
+                    <div class="command-desc">Use an item on a Pokémon.</div>
+                </div>
+                
+                <div class="command">
+                    <div class="command-syntax">@Pokétwo redeem [pokémon]</div>
+                    <div class="command-desc">Use a redeem to receive a Pokémon of your choice.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Did You Know Section -->
         <div class="did-you-know">
             <div class="did-you-know-title">Did you know?</div>
             <div class="did-you-know-desc">
@@ -544,35 +563,6 @@
                 <p>Normal spawns: Regular Pokémon</p>
                 <p>Legendary spawns: Very rare (mostly low chance and obtainable)</p>
                 <p>Event spawns: During special events</p>
-            </div>
-        </div>
-        
-        <div class="commands-title">Here are the Commands for Pokétwo Bot:</div>
-        
-        <div class="commands-list">
-            <div class="command">
-                <div class="command-syntax">@Pokétwo unmega</div>
-                <div class="command-desc">Switch a pokémon back to its non-mega form.</div>
-            </div>
-            
-            <div class="command">
-                <div class="command-syntax">@Pokétwo location</div>
-                <div class="command-desc">View or set the location for this server.</div>
-            </div>
-            
-            <div class="command">
-                <div class="command-syntax">@Pokétwo redeem</div>
-                <div class="command-desc">Use a redeem to receive a pokémon of your choice.</div>
-            </div>
-            
-            <div class="command">
-                <div class="command-syntax">@Pokétwo favoritall</div>
-                <div class="command-desc">Mass favorite selected pokemon.</div>
-            </div>
-            
-            <div class="command">
-                <div class="command-syntax">@Pokétwo donate</div>
-                <div class="command-desc">Donate to receive shards.</div>
             </div>
         </div>
     </div>
@@ -618,20 +608,6 @@
             </div>
             
             <div class="copyright">
-                <div class="footer-social">
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-discord"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-reddit"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
                 Activate Windows<br>
                 Go to Settings to activate Windows.
             </div>
