@@ -178,6 +178,26 @@
             margin-bottom: 10px;
         }
         
+        .odds-box {
+            background-color: #36393f;
+            padding: 25px;
+            margin: 40px 0;
+            border-left: 4px solid #5865f2;
+        }
+        
+        .odds-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        
+        .odds-desc {
+            color: #b9bbbe;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
         .footer {
             background-color: #202225;
             padding: 30px 20px;
@@ -229,6 +249,52 @@
             border-top: 1px solid #40444b;
         }
         
+        .credits {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #40444b;
+        }
+        
+        .credits-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .credits-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .credits-info {
+            flex: 1;
+        }
+        
+        .credits-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        
+        .credits-aka {
+            font-size: 16px;
+            color: #b9bbbe;
+            margin-bottom: 10px;
+        }
+        
+        .credits-desc {
+            font-size: 14px;
+            color: #b9bbbe;
+            line-height: 1.5;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 20px 15px;
@@ -272,11 +338,11 @@
                 font-size: 20px;
             }
             
-            .did-you-know {
+            .did-you-know, .odds-box {
                 padding: 20px;
             }
             
-            .did-you-know-title {
+            .did-you-know-title, .odds-title {
                 font-size: 20px;
             }
             
@@ -287,6 +353,21 @@
             .nav-row {
                 gap: 10px;
                 font-size: 13px;
+            }
+            
+            .credits {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .credits-avatar {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .credits-name {
+                font-size: 24px;
             }
         }
         
@@ -307,11 +388,11 @@
                 font-size: 14px;
             }
             
-            .did-you-know-title {
+            .did-you-know-title, .odds-title {
                 font-size: 18px;
             }
             
-            .did-you-know-desc {
+            .did-you-know-desc, .odds-desc {
                 font-size: 14px;
             }
             
@@ -326,6 +407,18 @@
             .nav-row {
                 gap: 8px;
                 font-size: 12px;
+            }
+            
+            .credits-name {
+                font-size: 22px;
+            }
+            
+            .credits-aka {
+                font-size: 14px;
+            }
+            
+            .credits-desc {
+                font-size: 13px;
             }
         }
     </style>
@@ -462,7 +555,7 @@
                 </div>
 
                 <div class="command">
-                    <div class="command-syntax">@Pokétwo nickall <span class="param">&lt;name&gt;</div>
+                    <div class="command-syntax">@Pokétwo nickall <span class="param">&lt;name&gt;</span></div>
                     <div class="command-desc">Mass nickname pokémon from your collection.</div>
                 </div>
 
@@ -872,6 +965,14 @@
                 <p>Event spawns: During special events</p>
             </div>
         </div>
+        
+        <!-- Odds Box -->
+        <div class="odds-box">
+            <div class="odds-title">Exact Odds</div>
+            <div class="odds-desc">
+                <p>Exact odds for gigantamax pokemon is 1/100 and the odds to catch one in the wild is 1/9695, making the odds of a shiny 1/33089719</p>
+            </div>
+        </div>
     </div>
     
     <div class="footer">
@@ -911,6 +1012,18 @@
                     <span>WeCoach</span>
                     <span>BotsDB</span>
                     <span>Bloxscape</span>
+                </div>
+            </div>
+            
+            <!-- Credits Section -->
+            <div class="credits">
+                <div class="credits-avatar">
+                    <img src="https://cdn.discordapp.com/avatars/1191240287385813073/8ca3edd11893f20204c1150bd2cbcdef.png?size=4096" alt="thoss Avatar">
+                </div>
+                <div class="credits-info">
+                    <div class="credits-name">thoss</div>
+                    <div class="credits-aka">AKA thosphere</div>
+                    <div class="credits-desc">web creator, artist and a designer</div>
                 </div>
             </div>
         </div>
